@@ -7,53 +7,388 @@
     <meta name="keywords" content="Free PDFs, Document Download, Learning Resources, Open Access Books">
     <title>Sample PDFs - Download Free Resources</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .pdf-list {
-            list-style: none;
+        * {
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .pdf-list li {
-            background: #fff;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
         }
-        a {
-            color: #3498db;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .pdf-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .pdf-card:nth-child(even) {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .pdf-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .pdf-card:hover::before {
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        .pdf-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .pdf-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-card:hover .pdf-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .pdf-icon svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .pdf-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .pdf-description {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
             text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover svg {
+            transform: translateY(-2px);
+        }
+
+        .coming-soon {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #4ecdc4;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .pdf-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .pdf-card {
+                padding: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="floating-shapes">
+        <div class="shape">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="30"/>
+            </svg>
+        </div>
+        <div class="shape">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="currentColor">
+                <rect x="25" y="25" width="50" height="50" rx="10"/>
+            </svg>
+        </div>
+        <div class="shape">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="currentColor">
+                <polygon points="50,10 90,90 10,90"/>
+            </svg>
+        </div>
+    </div>
 
-    <h1>Download Free Sample PDFs</h1>
-    <p>Welcome to the collection of free PDF resources for learning and general use. Download the available files below:</p>
+    <div class="container">
+        <div class="hero">
+            <h1>Download Free Resources</h1>
+            <p>Discover our curated collection of premium PDF documents, guides, and learning materials. All resources are completely free and ready for instant download.</p>
+        </div>
 
-    <h2>Available Files:</h2>
-    <ul class="pdf-list">
-        <li>
-            <strong>Activa Plate Number Document</strong> - 
-            <a href="Activa_plate_no.pdf" download>Download PDF</a>
-        </li>
-        <li>
-            <strong>Event Ticket Platform Guide</strong> - 
-            <a href="build-event-ticket-platform.pdf" download>Download PDF</a>
-        </li>
-    </ul>
+        <h2 class="section-title">Available Downloads</h2>
+        
+        <div class="pdf-grid">
+            <div class="pdf-card">
+                <div class="pdf-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">Activa Plate Number Document</h3>
+                <p class="pdf-description">Essential documentation for vehicle registration and identification. Contains important details and reference information for Activa vehicle owners.</p>
+                <a href="Activa_plate_no.pdf" class="download-btn" download>
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
 
-    <p>More resources will be added soon. Stay connected!</p>
+            <div class="pdf-card">
+                <div class="pdf-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">Event Ticket Platform Guide</h3>
+                <p class="pdf-description">Comprehensive guide for building and managing event ticketing platforms. Includes technical specifications, user flows, and implementation strategies.</p>
+                <a href="build-event-ticket-platform.pdf" class="download-btn" download>
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+        </div>
 
+        <div class="coming-soon">
+            <h3>🚀 More Resources Coming Soon!</h3>
+            <p>We're constantly adding new high-quality resources to our collection. Stay tuned for updates and fresh content!</p>
+        </div>
+    </div>
 </body>
 </html>
