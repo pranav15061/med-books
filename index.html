@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Sample PDFs and resources. Open collection of documents for learning and reference.">
-    <meta name="keywords" content="Free PDFs, Document Download, Learning Resources, Open Access Books">
-    <title>Sample PDFs - Download Free Resources</title>
+    <meta name="description" content="Download Medical Books and Educational Resources. Free access to medical textbooks and reference materials.">
+    <meta name="keywords" content="Medical Books, Medical PDFs, Medical Education, Free Medical Textbooks, Medical Resources">
+    <title>Medical Books - Download Free Medical Resources</title>
     <style>
         * {
             margin: 0;
@@ -141,6 +141,30 @@
             color: white;
         }
 
+        .medical-icon {
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+        }
+
+        .pathology-icon {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+
+        .clinical-icon {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .pharmacology-icon {
+            background: linear-gradient(135deg, #27ae60, #16a085);
+        }
+
+        .surgery-icon {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        .gynaecology-icon {
+            background: linear-gradient(135deg, #e91e63, #ad1457);
+        }
+
         .pdf-title {
             font-size: 1.4rem;
             font-weight: 600;
@@ -151,8 +175,16 @@
         .pdf-description {
             font-size: 0.95rem;
             opacity: 0.8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.5;
+        }
+
+        .pdf-size {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 25px;
+            color: #4ecdc4;
+            font-weight: 500;
         }
 
         .download-btn {
@@ -250,6 +282,22 @@
             animation-delay: 4s;
         }
 
+        .notice {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .notice p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -345,22 +393,27 @@
 
     <div class="container">
         <div class="hero">
-            <h1>Download Free Resources</h1>
-            <p>Discover our curated collection of premium PDF documents, guides, and learning materials. All resources are completely free and ready for instant download.</p>
+            <h1>Medical Books Collection</h1>
+            <p>Access our comprehensive collection of medical textbooks and reference materials. All resources are hosted on Google Drive for reliable access and instant download.</p>
         </div>
 
-        <h2 class="section-title">Available Downloads</h2>
+        <div class="notice">
+            <p>📚 All books are hosted on Google Drive. Click the download button to access each book directly from our secure cloud storage.</p>
+        </div>
+
+        <h2 class="section-title">Available Medical Books</h2>
         
         <div class="pdf-grid">
             <div class="pdf-card">
-                <div class="pdf-icon">
+                <div class="pdf-icon surgery-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        <path d="M9.5,1C8.67,1 8,1.67 8,2.5C8,3.33 8.67,4 9.5,4C10.33,4 11,3.33 11,2.5C11,1.67 10.33,1 9.5,1M12.09,3.5H11L10.5,6L12,20H14L15.5,6L15,3.5H13.91C13.96,3.33 14,3.17 14,3C14,1.89 13.11,1 12,1C10.89,1 10,1.89 10,3C10,3.17 10.04,3.33 10.09,3.5Z"/>
                     </svg>
                 </div>
-                <h3 class="pdf-title">Activa Plate Number Document</h3>
-                <p class="pdf-description">Essential documentation for vehicle registration and identification. Contains important details and reference information for Activa vehicle owners.</p>
-                <a href="Activa_plate_no.pdf" class="download-btn" download>
+                <h3 class="pdf-title">Dhingra Diseases of ENT & Head and Neck Surgery</h3>
+                <p class="pdf-description">Comprehensive textbook covering all aspects of ENT and head & neck surgery. Essential reference for medical students and practitioners.</p>
+                <p class="pdf-size">📄 Size: 72.2 MB</p>
+                <a href="https://drive.google.com/file/d/1cN551zNe3jcobcCO80xSou-MQZ_DpwuU/view?usp=drive_link" target="_blank" class="download-btn">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
                     </svg>
@@ -369,14 +422,83 @@
             </div>
 
             <div class="pdf-card">
-                <div class="pdf-icon">
+                <div class="pdf-icon gynaecology-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M17.5,13A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 14.5,13A1.5,1.5 0 0,1 16,11.5A1.5,1.5 0 0,1 17.5,13M10,13A1.5,1.5 0 0,1 8.5,14.5A1.5,1.5 0 0,1 7,13A1.5,1.5 0 0,1 8.5,11.5A1.5,1.5 0 0,1 10,13M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"/>
                     </svg>
                 </div>
-                <h3 class="pdf-title">Event Ticket Platform Guide</h3>
-                <p class="pdf-description">Comprehensive guide for building and managing event ticketing platforms. Includes technical specifications, user flows, and implementation strategies.</p>
-                <a href="build-event-ticket-platform.pdf" class="download-btn" download>
+                <h3 class="pdf-title">Gynaecology - DC Dutta</h3>
+                <p class="pdf-description">Authoritative textbook on gynaecology by DC Dutta. Widely used reference for understanding women's health and reproductive medicine.</p>
+                <p class="pdf-size">📄 Size: 49.9 MB</p>
+                <a href="https://drive.google.com/file/d/1EvGMVrsAopkiL5K5O85EYtSFn9UR1ZU_/view?usp=drive_link" target="_blank" class="download-btn">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-icon pathology-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.5,2C13.5,2 16.5,2.57 19.07,4.93L12,10.5L4.93,4.93C7.5,2.57 10.5,2 10.5,2H13.5M12,11.5L19.07,5.93C19.5,6.79 19.78,7.73 19.93,8.7L12,15L4.07,8.7C4.22,7.73 4.5,6.79 4.93,5.93L12,11.5M12,16L19.93,9.7C19.94,9.8 19.94,9.9 19.94,10C19.94,14.42 16.42,18 12,18C7.58,18 4.06,14.42 4.06,10C4.06,9.9 4.06,9.8 4.07,9.7L12,16Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">Harsh Mohan Textbook of Pathology - 6th Edition</h3>
+                <p class="pdf-description">Comprehensive pathology textbook covering general and systemic pathology. Essential for understanding disease processes.</p>
+                <p class="pdf-size">📄 Size: 59.3 MB</p>
+                <a href="https://drive.google.com/file/d/1acK3xduM4QHIeTpvmtdkgqKLIRBaBgJu/view?usp=drive_link" target="_blank" class="download-btn">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-icon clinical-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21,11H14.5L16.5,9H21M21,7H14L16,5H21M21,15H14L16,13H21M21,17H14.5L16.5,15H21M9,5V7H6V5H9M11,5A2,2 0 0,1 9,7H6A2,2 0 0,1 4,5H11M9,15V17H6V15H9M11,15A2,2 0 0,1 9,17H6A2,2 0 0,1 4,15H11Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">Hutchison's Clinical Methods - 24th Edition</h3>
+                <p class="pdf-description">Classic clinical examination textbook. Covers history taking, physical examination, and clinical reasoning skills.</p>
+                <p class="pdf-size">📄 Size: 42.2 MB</p>
+                <a href="https://drive.google.com/file/d/1ZALWc1RcTW2nWX8qj2OzXMINt-oxs8I7/view?usp=drive_link" target="_blank" class="download-btn">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-icon medical-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19,8L15,12H18A6,6 0 0,1 12,18C11,18 10.03,17.75 9.2,17.3L7.74,18.76C8.97,19.54 10.43,20 12,20A8,8 0 0,0 20,12H23M1,12H4A8,8 0 0,0 12,4A8,8 0 0,0 20,12H17L21,8L17,4H20A10,10 0 0,0 10,14A10,10 0 0,0 20,12Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">PTSR - Shipra Part 1 (Hindi)</h3>
+                <p class="pdf-description">Hindi language medical reference book. Part 1 of the PTSR series by Shipra, useful for Hindi-speaking medical students.</p>
+                <p class="pdf-size">📄 Size: 51.9 MB</p>
+                <a href="https://drive.google.com/file/d/12sVvgkKPh210f3l2CvywrDbZC1x8Iso4/view?usp=drive_link" target="_blank" class="download-btn">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <div class="pdf-card">
+                <div class="pdf-icon pharmacology-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                    </svg>
+                </div>
+                <h3 class="pdf-title">Shanbag Pharmacology</h3>
+                <p class="pdf-description">Comprehensive pharmacology textbook covering drug mechanisms, therapeutic uses, and adverse effects. Essential for medical pharmacology study.</p>
+                <p class="pdf-size">📄 Size: 207.4 MB</p>
+                <a href="https://drive.google.com/file/d/1URPiY-835X4FEO8BsVqeW-QrCGf6ip3m/view?usp=drive_link" target="_blank" class="download-btn">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
                     </svg>
@@ -386,8 +508,8 @@
         </div>
 
         <div class="coming-soon">
-            <h3>🚀 More Resources Coming Soon!</h3>
-            <p>We're constantly adding new high-quality resources to our collection. Stay tuned for updates and fresh content!</p>
+            <h3>🏥 More Medical Resources Coming Soon!</h3>
+            <p>We're continuously expanding our medical book collection. Check back regularly for new textbooks, reference materials, and study guides!</p>
         </div>
     </div>
 </body>
